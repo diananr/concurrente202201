@@ -29,10 +29,13 @@ class App extends React.Component {
 
     async agregarApuesta(e) {
         e.preventDefault();
+        await window.ethereum.enable();
         if (window.ethereum !== 'undefined') {
-            if (Window.ethereum.selectedAddress) {
+            if (ethereum.request({method: 'eth_requestAccounts'})) {
+                const cuentas = await ethereum.request({method: 'eth_requestAccounts'})
+                const cuenta = cuentas[0];
                 console.log(Web3.utils.toWei(this.state.montoApuesta, 'ether'));
-                console.log(await miContrato.methods.agregarApuesta().send({from: window.ethereum.selectedAddress(), 
+                console.log(await miContrato.methods.agregarApuesta().send({from: cuenta, 
                                                                             value: Web3.utils.toWei(this.state.montoApuesta, 'ether')}));
             } else {
                 console.log(await ethereum.request({method: 'eth_requestAccounts'}));
