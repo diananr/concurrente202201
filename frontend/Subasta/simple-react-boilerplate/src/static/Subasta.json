@@ -6,7 +6,8 @@
       "name": "agregarApuesta",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     },
     {
       "inputs": [
@@ -25,7 +26,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -38,7 +40,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -51,7 +54,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -4360,12 +4364,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x3D6383459863A1219092FA2B13d3CD483D8a9Aa4",
-      "transactionHash": "0x2a32e96b2339d55a2094c9e5db6e98a48cea308236ceeeb9626baa4444b4f3b6"
+      "address": "0x8dD84d6142dF8fC20179439Aa046BB99A2Dd01e3",
+      "transactionHash": "0xfd515f04499815f2ab7d249669c368b06adc63e6661f2f43d64f2d73dfe3626c"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-29T22:46:52.890Z",
+  "updatedAt": "2022-06-29T23:39:38.461Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
