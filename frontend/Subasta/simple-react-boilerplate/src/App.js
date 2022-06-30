@@ -2,12 +2,12 @@ import React from 'react';
 import Web3 from 'web3';
 import Subasta from './static/Subasta.json'
 import Bulbasaur from './static/Bulbasaur.png'
+import './appStyles.css'
 var miContrato;
 
 const { ethereum } = window
 
 class App extends React.Component {
-
 
     constructor(){
       super()
@@ -53,25 +53,85 @@ class App extends React.Component {
 
     render() {
         return (
-            <div style={
-                {
-                    margin: '0px auto',
-                    display: 'flex',
-                    justifyContent: "center",
-                    flexFlow: "column",
-                    alignItems: "center"
-                }
-            }>
-                <h1>
-                    Concurrente 2022-01 Trabajo Final
-                </h1>
-                <img src={Bulbasaur}
-                    alt='Bulbasaur'/>
-                <input type='number' placeholder='Eth' value={this.state.montoApuesta} onChange={(e)=> this.changeBidAmount(e)}/>
-                <button onClick={
-                    (e) => this.agregarApuesta(e)
-                }>Apostar</button>
-            </div>
+            <main className="appView">
+                <header className="appView_header">
+                    <h1>
+                        Concurrente 2022-01 Trabajo Final
+                    </h1>
+                </header>
+                <section className="appView_body">
+                    <aside className="asideContent">
+                        <figure className="asideContent_figure">
+                            <img src={Bulbasaur} alt='Bulbasaur'/>
+                        </figure>
+                    </aside>
+                    <section className="mainContent">
+                        <h2 className="mainContent_name">Nombre de la imagen</h2>
+                        <p className="mainContent_description">Descripción ....</p>
+                        <p className="mainContent_data">
+                            <label className="dataLabel">Monto:</label>
+                            <span className="dataValue">10.00</span>
+                        </p>
+                        <div className="mainContent_options">
+                            <h3 className="optionsTitle">Opciones:</h3>
+                            <div className="optionsField">
+                                <input
+                                    className="optionsField_input"
+                                    type='number'
+                                    placeholder='Eth'
+                                    value={this.state.montoApuesta}
+                                    onChange={(e)=> this.changeBidAmount(e)}/>
+                                <button
+                                    className="optionsField_button"
+                                    type="button"
+                                    onClick={(e) => this.agregarApuesta(e)}>Apostar</button>
+                            </div>
+                            <div className="optionsField">
+                                <input
+                                    className="optionsField_input"
+                                    type='number'
+                                    placeholder='Placeholder...'/>
+                                <button
+                                    className="optionsField_button"
+                                    type="button">Retirar apuesta</button>
+                            </div>
+                            <div className="optionsField">
+                                <input
+                                    className="optionsField_input"
+                                    type='number'
+                                    placeholder='Placeholder...'/>
+                                <button
+                                    className="optionsField_button"
+                                    type="button">Crear tiempo fin</button>
+                            </div>
+                            <div className="line"/>
+                            <div className="optionsField">
+                                <input
+                                    className="optionsField_input"
+                                    type='number'
+                                    placeholder='Placeholder...'/>
+                                <button
+                                    className="optionsField_button"
+                                    type="button">Obtener contra..</button>
+                            </div>
+                            <div className="optionsField">
+                                <button
+                                    className="optionsField_button"
+                                    type="button">Apuesta mayor</button>
+                                <label className="optionsField_label">Texto a reemplazar ...</label>
+                            </div>
+                            <div className="optionsField">
+                                <button
+                                    className="optionsField_button"
+                                    type="button">Mayor postor</button>
+                                <label className="optionsField_label">Texto a reemplazar ...</label>
+                            </div>
+                            
+                        </div>
+                    </section>
+                </section>
+                
+            </main>
         );
     }
 }
