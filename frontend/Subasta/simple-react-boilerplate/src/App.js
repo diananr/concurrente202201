@@ -12,7 +12,8 @@ class App extends React.Component {
     constructor(){
       super()
       this.state={
-        montoApuesta: 0
+        montoApuesta: 0,
+        direccionRetiro: ''
       }
     }
 
@@ -45,10 +46,26 @@ class App extends React.Component {
         }
     }
 
+    async retirarPuja(e) {
+        e.preventDefault();
+        if(window.ethereum !== 'undefined'){
+            if (ethereum.request({method: 'eth_requestAccounts'})) {
+                const cuentas = await ethereum.request({method: 'eth_requestAccounts'});
+                const cuenta = cuentas[0];
+                console.log(await miContrato.methods.RetirarApuesta(this.state.direccionRetiro).send({from: this.state.direccionRetiro}))
+                
+            }
+        }
+    }
+
     changeBidAmount(e){
       e.preventDefault()
-      console.log(e);
       this.setState({montoApuesta: e.target.value})
+    }
+
+    changePostorAddress(e){
+        e.preventDefault()
+        this.setState({direccionRetiro: e.target.value})
     }
 
     render() {
@@ -84,16 +101,20 @@ class App extends React.Component {
                                 <button
                                     className="optionsField_button"
                                     type="button"
-                                    onClick={(e) => this.agregarApuesta(e)}>Apostar</button>
+                                    onClick={(e) => this.agregarApuesta(e)}>Pujar</button>
                             </div>
                             <div className="optionsField">
                                 <input
                                     className="optionsField_input"
-                                    type='number'
-                                    placeholder='Placeholder...'/>
+                                    type='text'
+                                    placeholder='Postor Address'
+                                    value={this.state.direccionRetiro}
+                                    onChange={(e)=> this.changePostorAddress(e)}
+                                    />
                                 <button
                                     className="optionsField_button"
-                                    type="button">Retirar apuesta</button>
+                                    type="button"
+                                    onClick={(e)=>this.retirarPuja(e)}>Retirar Puja</button>
                             </div>
                             <div className="optionsField">
                                 <input
