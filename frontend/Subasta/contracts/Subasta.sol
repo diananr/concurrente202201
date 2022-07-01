@@ -17,7 +17,7 @@ contract Subasta{
         uint calcularMonto = postoresData[msg.sender]+msg.value;
         require(msg.value > 0, "La apuesta debe ser mayor a 0");
         // //Verificar que la subasta no expiró
-        // require(block.timestamp<=tiempoFin, "La subasta ya termino");
+        require(block.timestamp<=tiempoFin, "La subasta ya termino");
         //Verificar Apuesta Mayor
         require(calcularMonto > apuestaMayor, "Su monto esta por debajo de la Apuesta Mayor");
         postoresData[msg.sender] = calcularMonto;
