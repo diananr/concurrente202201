@@ -11,10 +11,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      montoApuesta: 0,
+      montoApuesta: null,
       direccionRetiro: '',
       apuestaMayorLabel: '',
       mayorPostorLabel: '',
+      error1: false,
+      error2: false,
+      error3: false,
     };
   }
 
@@ -84,7 +87,13 @@ class App extends React.Component {
 
   changeBidAmount(e) {
     e.preventDefault();
-    this.setState({ montoApuesta: e.target.value });
+    const value = e.target.value;
+    if (value <= this.state.apuestaMayorLabel) {
+      this.setState({ error1: true });
+    } else {
+      this.setState({ error1: false });
+    }
+    this.setState({ montoApuesta: value });
   }
 
   changePostorAddress(e) {
@@ -105,8 +114,15 @@ class App extends React.Component {
             </figure>
           </aside>
           <section className="mainContent">
-            <h2 className="mainContent_name">Nombre de la imagen</h2>
-            <p className="mainContent_description">Descripción ....</p>
+            <h2 className="mainContent_name">Bulbasaur</h2>
+            <p className="mainContent_description">
+              Bulbasaur es un Pokémon de tipo planta/veneno introducido en la
+              primera generación. Es uno de los Pokémon iniciales que pueden
+              elegir los entrenadores que empiezan su aventura en la región
+              Kanto, junto a Squirtle y Charmander (excepto en Pokémon
+              Amarillo). Destaca por ser el primer Pokémon de la Pokédex
+              Nacional y la en la Pokédex de Kanto.
+            </p>
             <p className="mainContent_data">
               <label className="dataLabel">Monto:</label>
               <span className="dataValue">10.00</span>
@@ -123,15 +139,20 @@ class App extends React.Component {
               <h3 className="optionsTitle">Opciones:</h3>
               <div className="optionsField">
                 <input
-                  className="optionsField_input"
+                  className={`optionsField_input ${
+                    this.state.error1 ? 'optionsField_inputError' : ''
+                  }`}
                   type="number"
-                  placeholder="Eth"
+                  placeholder="Monto"
                   value={this.state.montoApuesta}
                   onChange={(e) => this.changeBidAmount(e)}
                 />
                 <button
                   className="optionsField_button"
                   type="button"
+                  disabled={
+                    this.state.error1 || this.state.montoApuesta === null
+                  }
                   onClick={(e) => this.agregarApuesta(e)}
                 >
                   Pujar
@@ -139,15 +160,22 @@ class App extends React.Component {
               </div>
               <div className="optionsField">
                 <input
-                  className="optionsField_input"
+                  className={`optionsField_input ${
+                    this.state.error2 ? 'optionsField_inputError' : ''
+                  }`}
                   type="text"
-                  placeholder="Postor Address"
+                  placeholder="Dirección del postor"
                   value={this.state.direccionRetiro}
                   onChange={(e) => this.changePostorAddress(e)}
                 />
                 <button
-                  className="optionsField_button"
+                  className="optionsField_button optionsField_buttonSecondary"
                   type="button"
+                  disabled={
+                    this.state.error2 ||
+                    this.state.direccionRetiro === null ||
+                    this.state.direccionRetiro.length === 0
+                  }
                   onClick={(e) => this.retirarPuja(e)}
                 >
                   Retirar Puja
@@ -155,40 +183,18 @@ class App extends React.Component {
               </div>
               <div className="optionsField">
                 <input
-                  className="optionsField_input"
+                  className={`optionsField_input ${
+                    this.state.error3 ? 'optionsField_inputError' : ''
+                  }`}
                   type="datetime-local"
                   placeholder="Placeholder..."
                 />
-                <button className="optionsField_button" type="button">
+                <button
+                  className="optionsField_button optionsField_buttonSecondary2"
+                  type="button"
+                >
                   Crear tiempo fin
                 </button>
-              </div>
-              <div className="line" />
-              <div className="optionsField">
-                <input
-                  className="optionsField_input"
-                  type="number"
-                  placeholder="Placeholder..."
-                />
-                <button className="optionsField_button" type="button">
-                  Obtener contra..
-                </button>
-              </div>
-              <div className="optionsField">
-                <button className="optionsField_button" type="button">
-                  Apuesta mayor
-                </button>
-                <label className="optionsField_label">
-                  Texto a reemplazar ...
-                </label>
-              </div>
-              <div className="optionsField">
-                <button className="optionsField_button" type="button">
-                  Mayor postor
-                </button>
-                <label className="optionsField_label">
-                  Texto a reemplazar ...
-                </label>
               </div>
             </div>
           </section>

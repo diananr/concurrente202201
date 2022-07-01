@@ -6,13 +6,20 @@
   max-width: var(--max-width);
   margin: auto;
   min-height: 100vh;
+  background-color: white;
 }
 .appView_header {
-  border-bottom: 1px solid lightgrey;
-  height: 100px;
+  border-bottom: 1px solid #efefef;
+  height: 70px;
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 1px 6px 0px rgb(0 0 0 / 12%);
 }
 .headerTitle {
-  font-weight: 700;
+  font-weight: bold;
+  font-size: 30px;
+  color: #174152;
 }
 .appView_body {
   display: flex;
@@ -37,6 +44,7 @@
 }
 .mainContent_description {
   font-size: 18px;
+  margin: 0 0 3rem;
 }
 /* ////////////////// */
 .mainContent_data {
@@ -74,10 +82,19 @@
   border: 1px solid #c5c8cd;
   margin: 0 0.5rem 0 0;
 }
+.optionsField_inputError {
+  border: 1px solid #dd3f3f;
+  color: #dd3f3f;
+}
+.optionsField_inputMessage {
+  color: #dd3f3f;
+  font-size: 10px;
+}
+
 .optionsField_button {
-  background-color: peru;
+  background-color: #3a8fb3;
   border-radius: 4px;
-  border: 1px solid peru;
+  border: 1px solid #3a8fb3;
   cursor: pointer;
   min-height: 36px;
   outline: none;
@@ -86,6 +103,20 @@
   width: 250px;
   outline: none;
 }
+.optionsField_button:disabled {
+  background-color: lightgray;
+  border: 1px solid lightgray;
+  cursor: no-drop;
+}
+.optionsField_buttonSecondary {
+  background-color: #47b38b;
+  border: 1px solid #47b38b;
+}
+.optionsField_buttonSecondary2 {
+  background-color: #89d99d;
+  border: 1px solid #89d99d;
+}
+
 .optionsField_label {
   font-size: 16px;
   margin: 0 0 0 0.5rem;
