@@ -1,89 +1,98 @@
 :root {
-    --max-width: 1360px;
+  --max-width: 1360px;
 }
-  
+
 .appView {
-    max-width: var(--max-width);
-    margin: auto;
-    min-height: 100vh;
+  max-width: var(--max-width);
+  margin: auto;
+  min-height: 100vh;
 }
-.appView_header{
-    border-bottom: 1px solid lightgrey;
+.appView_header {
+  border-bottom: 1px solid lightgrey;
+  height: 100px;
 }
-.appView_body{
-    display: flex;
+.headerTitle {
+  font-weight: 700;
+}
+.appView_body {
+  display: flex;
 }
 /* ////////////////// */
-.asideContent{
-    width: 600px;
-    padding: 2rem;
+.asideContent {
+  width: 600px;
+  padding: 2rem;
 }
-.asideContent_figure{
-    border-radius: 20px;
-    border: 10px solid lightgrey;
+.asideContent_figure {
+  border-radius: 20px;
+  border: 10px solid lightgrey;
 }
 /* ////////////////// */
 .mainContent {
-    flex: 1;
-    padding: 2rem;
+  flex: 1;
+  padding: 2rem;
 }
 .mainContent_name {
-    font-size: 24px;
-    font-weight: 700;
+  font-size: 24px;
+  font-weight: 700;
 }
 .mainContent_description {
-    font-size: 18px;
+  font-size: 18px;
 }
 /* ////////////////// */
+.mainContent_data {
+  display: flex;
+  align-items: center;
+}
 .mainContent_data > .dataLabel {
-    font-size: 18px;
-    font-weight: 500;
+  font-size: 18px;
+  font-weight: 500;
 }
 .mainContent_data > .dataValue {
-    font-size: 18px;
+  font-size: 18px;
+  margin: 0 0 0 0.25rem;
 }
 /* ////////////////// */
 .mainContent_options {
-    padding: 2rem 0 0;
+  padding: 2rem 0 0;
 }
 .optionsTitle {
-    font-size: 20px;
-    font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 }
 .optionsField {
-    align-items: center;
-    display: flex;
-    margin: 0 0 1rem;
+  align-items: center;
+  display: flex;
+  margin: 0 0 1rem;
 }
 .optionsField_input {
-    width: 250px;
-    min-height: 36px;
-    outline: none;
-    padding: 0.5rem 0.625rem;
-    background-color: white;
-    border-radius: 4px;
-    border: 1px solid #c5c8cd;
-    margin: 0 0.5rem 0 0;
+  width: 250px;
+  min-height: 36px;
+  outline: none;
+  padding: 0.5rem 0.625rem;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #c5c8cd;
+  margin: 0 0.5rem 0 0;
 }
 .optionsField_button {
-    background-color: peru;
-    border-radius: 4px;
-    border: 1px solid peru;
-    cursor: pointer;
-    min-height: 36px;
-    outline: none;
-    padding: 0.5rem 1.5rem;
-    text-align: center;
-    width: 250px;
-    outline: none;
+  background-color: peru;
+  border-radius: 4px;
+  border: 1px solid peru;
+  cursor: pointer;
+  min-height: 36px;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  width: 250px;
+  outline: none;
 }
 .optionsField_label {
-    font-size: 16px;
-    margin: 0 0 0 0.5rem;
+  font-size: 16px;
+  margin: 0 0 0 0.5rem;
 }
 .line {
-    background-color: lightgrey;
-    height: 1px;
-    width: 100%;
-    margin: 2rem 0;
+  background-color: lightgrey;
+  height: 1px;
+  width: 100%;
+  margin: 2rem 0;
 }
