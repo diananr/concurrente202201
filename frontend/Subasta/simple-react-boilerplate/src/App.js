@@ -18,6 +18,7 @@ class App extends React.Component {
       error1: false,
       error2: false,
       error3: false,
+      fechaContract: new Date()
     };
   }
 
@@ -83,6 +84,23 @@ class App extends React.Component {
         );
       }
     }
+  }
+
+  async newContractDate(e){
+    const fechatemp = new Date(this.state.fechaContract)
+    const unixDate = fechatemp.getTime()/1000.0
+    const cuentas = await ethereum.request({
+        method: 'eth_requestAccounts',
+      });
+      const cuenta = cuentas[0];
+    await  await miContrato.methods.crearTiempoFin(unixDate).send({from: cuenta})
+  }
+
+  dateContract(e){
+    e.preventDefault();
+    // const fechatemp = new Date(e.target.value)
+    // const unixDate = fechatemp.getTime()/1000.0
+    this.setState({fechaContract: e.target.value})
   }
 
   changeBidAmount(e) {
@@ -188,11 +206,14 @@ class App extends React.Component {
                   }`}
                   type="datetime-local"
                   placeholder="Placeholder..."
+                  //value={this.state.fechaContract}
+                  onChange={(e)=> this.dateContract(e)}
                 />
                 <button
                   className="optionsField_button optionsField_buttonSecondary2"
                   type="button"
-                >
+                  onClick={(e)=> this.newContractDate(e)}
+                  >
                   Crear tiempo fin
                 </button>
               </div>
