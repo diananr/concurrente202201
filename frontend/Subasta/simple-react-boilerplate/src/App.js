@@ -141,7 +141,7 @@ class App extends React.Component {
               Amarillo). Destaca por ser el primer Pokémon de la Pokédex
               Nacional y la en la Pokédex de Kanto.
             </p>
-            <p className="mainContent_data">
+            {/* <p className="mainContent_data">
               <label className="dataLabel">Monto:</label>
               <span className="dataValue">10.00</span>
             </p>
@@ -152,7 +152,7 @@ class App extends React.Component {
             <p className="mainContent_data">
               <label className="dataLabel">Dirección de mayor puja:</label>
               <span className="dataValue">{this.state.mayorPostorLabel}</span>
-            </p>
+            </p> */}
             <div className="mainContent_options">
               <h3 className="optionsTitle">Opciones:</h3>
               <div className="optionsField">
